@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+
+void caesar_encrypt(char *plain_text, int key) {
+    int i;
+    for (i = 0; i < strlen(plain_text); i++) {
+        if (plain_text[i] >= 'A' && plain_text[i] <= 'Z') {
+            plain_text[i] = ((plain_text[i] - 'A' + key) % 26) + 'A';
+        } else if (plain_text[i] >= 'a' && plain_text[i] <= 'z') {
+            plain_text[i] = ((plain_text[i] - 'a' + key) % 26) + 'a';
+        }
+    }
+}
+
+int main() {
+    char message[1000];
+    int key;
+
+    printf("Enter the message to encrypt: ");
+    fgets(message, sizeof(message), stdin);
+
+    for (key = 1; key <= 25; key++) {
+        char encrypted_message[1000];
+        strcpy(encrypted_message, message);
+        caesar_encrypt(encrypted_message, key);
+        printf("Key: %d, Encrypted message: %s", key, encrypted_message);
+    }
+
+    return 0;
+}
+
+
+OUTPUT:
+Enter the message to encrypt: gayatri
+Key: 1, Encrypted message: hbzbusj
+Key: 2, Encrypted message: icacvtk
+Key: 3, Encrypted message: jdbdwul
+Key: 4, Encrypted message: kecexvm
+Key: 5, Encrypted message: lfdfywn
+Key: 6, Encrypted message: mgegzxo
+Key: 7, Encrypted message: nhfhayp
+Key: 8, Encrypted message: oigibzq
+Key: 9, Encrypted message: pjhjcar
+Key: 10, Encrypted message: qkikdbs
+Key: 11, Encrypted message: rljlect
+Key: 12, Encrypted message: smkmfdu
+Key: 13, Encrypted message: tnlngev
+Key: 14, Encrypted message: uomohfw
+Key: 15, Encrypted message: vpnpigx
+Key: 16, Encrypted message: wqoqjhy
+Key: 17, Encrypted message: xrprkiz
+Key: 18, Encrypted message: ysqslja
+Key: 19, Encrypted message: ztrtmkb
+Key: 20, Encrypted message: ausunlc
+Key: 21, Encrypted message: bvtvomd
+Key: 22, Encrypted message: cwuwpne
+Key: 23, Encrypted message: dxvxqof
+Key: 24, Encrypted message: eywyrpg
+Key: 25, Encrypted message: fzxzsqh
